@@ -10,13 +10,32 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeView'),
+        title: const Text('Todo'),
         centerTitle: true,
       ),
       body: const Center(
         child: Text(
           'HomeView is working',
           style: TextStyle(fontSize: 20),
+        ),
+      ),
+      // getx bottom navigation bar
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+          currentIndex: controller.bottomNavIndex.value,
+          onTap: (int index) {
+            controller.changeBottomNavIndex(index);
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.fact_check_outlined),
+              label: 'Todo',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.done),
+              label: 'Done',
+            ),
+          ],
         ),
       ),
     );

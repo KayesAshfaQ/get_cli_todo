@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
+class TodoController extends GetxController {
+  //TODO: Implement TodoController
 
-  var bottomNavIndex = 0.obs;
-
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -20,7 +19,5 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  void changeBottomNavIndex(int index) {
-    bottomNavIndex.value = index;
-  }
+  void increment() => count.value++;
 }
